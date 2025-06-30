@@ -1,14 +1,12 @@
-# from langchain.chat_models import init_chat_model
 from langchain_openai import ChatOpenAI
-#OpenAIEmbeddings
 from langchain_core.vectorstores import InMemoryVectorStore
 # from langchain_text_splitters import RecursiveCharacterTextSplitter
-# from langchain_community.document_loaders import WebBaseLoader
+from langchain_community.document_loaders import WebBaseLoader
 # from langgraph.graph import MessagesState, StateGraph
 # from langchain_core.messages import SystemMessage
 # from langgraph.prebuilt import ToolNode
 # from langchain_core.tools import tool
-# import bs4
+import bs4
 
 def create_llm(
     model_name: str, api_key: str
@@ -20,16 +18,17 @@ def create_vector_store(embeddings):
     """Create the vector store"""
     return InMemoryVectorStore(embeddings)
 
-# def webpage_loader(path: str, classes: tuple[str]):
-#     """Loads webpage"""
-#     return WebBaseLoader(
-#         web_path=path,
-#         bs_kwargs=dict(
-#             parse_only=bs4.SoupStrainer(
-#                 class_=classes
-#             )
-#         )
-#     )
+def webpage_loader(path: str, classes: tuple[str]):
+    """Loads webpage"""
+    return WebBaseLoader(
+        web_path=path,
+        bs_kwargs=dict(
+            parse_only=bs4.SoupStrainer(
+                class_=classes
+            )
+        ), 
+        
+    )
 
 # def split_text(docs, chunk_size: int, overlap: int):
 #     """Splits documents by specific chunk size and overlap"""
