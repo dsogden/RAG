@@ -4,9 +4,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import WebBaseLoader
 import bs4
 
-def create_llm(
-    model_name: str, api_key: str
-):
+def create_llm(model_name: str, api_key: str):
     """Create the llm model"""
     return ChatOpenAI(model=model_name, api_key=api_key)
 
@@ -22,8 +20,7 @@ def webpage_loader(path: str, classes: tuple[str]):
             parse_only=bs4.SoupStrainer(
                 class_=classes
             )
-        ), 
-        
+        )
     )
 
 def split_text(docs, chunk_size: int, overlap: int):
