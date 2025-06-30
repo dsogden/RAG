@@ -1,26 +1,20 @@
 from langchain.chat_models import init_chat_model
 from langchain_openai import OpenAIEmbeddings
-from dataclasses import dataclass
+from langchain_core.vectorstores import InMemoryVectorStore
 from env_config import MyConfig
 
-config = MyConfig()
-
-@dataclass
-class Model:
-    model: str = config.MODEL
-    model_provider: str = config.MODEL_PROVIDER
-
-@dataclass
-class TextEmbeddings:
-    text_embedding: str = config.TEXT_EMBEDDINGS
-
-def create_llm(model_info: Model):
+def create_llm(config: MyConfig):
     """Create the llm model"""
     return init_chat_model(
-        model=model_info.model,
-        model_provider=model_info.model_provider,
+        model=config.MODEL,
+        model_provider=config.MODEL_PROVIDER,
         api_key=config.API_KEY
     )
 
-def embed_docments(embedding_model: OpenAIEmbeddings):
-    pass
+def create_embeddings(config: MyConfig):
+    """Create the embedding model"""
+    return OpenAIEmbeddings(model=config.TEXT_EMBEDDINGS, api_key=config.API_KEY)
+
+def create_vector_store(embeddings: OpenAIEmbeddings):
+    """Create the vector store"""
+    return InMemoryVectorStore(embeddings)

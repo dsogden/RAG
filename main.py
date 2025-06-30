@@ -1,8 +1,7 @@
-from langchain_tools import Model, TextEmbeddings, create_llm
+from langchain_tools import create_llm, create_embedding_model
+from env_config import MyConfig
 
-model = Model()
-embedings = TextEmbeddings()
-
-llm = create_llm(model)
-
-print(llm)
+config = MyConfig()
+llm = create_llm(config)
+embeddings = create_embedding_model(config)
+print(embeddings)
