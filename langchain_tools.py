@@ -1,7 +1,7 @@
 # from langchain.chat_models import init_chat_model
 from langchain_openai import ChatOpenAI
 #OpenAIEmbeddings
-# from langchain_core.vectorstores import InMemoryVectorStore
+from langchain_core.vectorstores import InMemoryVectorStore
 # from langchain_text_splitters import RecursiveCharacterTextSplitter
 # from langchain_community.document_loaders import WebBaseLoader
 # from langgraph.graph import MessagesState, StateGraph
@@ -16,9 +16,9 @@ def create_llm(
     """Create the llm model"""
     return ChatOpenAI(model=model_name, api_key=api_key)
 
-# def create_vector_store(embeddings: OpenAIEmbeddings):
-#     """Create the vector store"""
-#     return InMemoryVectorStore(embeddings)
+def create_vector_store(embeddings):
+    """Create the vector store"""
+    return InMemoryVectorStore(embeddings)
 
 # def webpage_loader(path: str, classes: tuple[str]):
 #     """Loads webpage"""

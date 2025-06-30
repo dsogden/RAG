@@ -1,7 +1,5 @@
-from langchain_tools import create_llm
+from langchain_tools import create_llm, create_vector_store
 from langchain_openai import OpenAIEmbeddings
-from langchain_openai import ChatOpenAI
-from langchain_core.messages import HumanMessage
 from dotenv import load_dotenv
 import os
 
@@ -15,7 +13,7 @@ SPLIT_OVERLAP = 200
 
 llm = create_llm(MODEL_NAME, API_KEY)
 embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL)
-# vector_store = create_vector_store(embeddings)
+vector_store = create_vector_store(embeddings)
 
 # path = "https://lilianweng.github.io/posts/2023-06-23-agent/"
 # loader = webpage_loader(path, classes=("post-content", "post-title", "post-header"))
