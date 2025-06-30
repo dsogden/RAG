@@ -1,15 +1,18 @@
-from langchain_tools import create_llm, create_vector_store
+from langchain_tools import create_llm, create_vector_store, webpage_loader
 from langchain_openai import OpenAIEmbeddings
-from env_config import MyConfig
-import os
+from dotenv import load_dotenv
 
-config = MyConfig(
-    MODEL=os.getenv("OPENAI_API_MODEL"),
-    MODEL_PROVIDER=os.getenv("OPENAI_API_MODEL_PROVIDER"),
-    API_KEY=os.getenv("OPENAI_API_KEY"),
-    EMBEDDING_MODEL=os.getenv("OPENAI_API_EMBEDDINGS_MODEL")
-)
+load_dotenv()
 
-llm = create_llm(config.MODEL, config.MODEL_PROVIDER, config.API_KEY)
-embeddings = OpenAIEmbeddings(model=config.EMBEDDING_MODEL)
+MODEL_NAME = "gpt-4o-mini"
+MODEL_PROVIDER = "openai"
+EMBEDDING_MODEL = "text-embedding-3-large"
+
+llm = create_llm(MODEL_NAME, MODEL_PROVIDER)
+embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL)
 vector_store = create_vector_store(embeddings)
+
+path = "https://lilianweng.github.io/posts/2023-06-23-agent/"
+loader = webpage_loader(path, ("post-content", "post-title", "post-header"))
+docs = loader.load()
+print(docs)
