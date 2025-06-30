@@ -1,5 +1,5 @@
 from langchain_tools import create_llm
-# from langchain_openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
 from dotenv import load_dotenv
@@ -8,14 +8,13 @@ import os
 load_dotenv()
 
 MODEL_NAME = "gpt-4o-mini"
+EMBEDDING_MODEL = "text-embedding-3-large"
 API_KEY = os.getenv('OPENAI_API_KEY')
-# EMBEDDING_MODEL = "text-embedding-3-large"
-
-# CHUNK_SIZE = 1000
-# SPLIT_OVERLAP = 200
+CHUNK_SIZE = 1000
+SPLIT_OVERLAP = 200
 
 llm = create_llm(MODEL_NAME, API_KEY)
-# embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL)
+embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL)
 # vector_store = create_vector_store(embeddings)
 
 # path = "https://lilianweng.github.io/posts/2023-06-23-agent/"
