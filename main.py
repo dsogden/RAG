@@ -18,8 +18,3 @@ vector_store = create_vector_store(embeddings)
 path = "https://lilianweng.github.io/posts/2023-06-23-agent/"
 loader = webpage_loader(path, classes=("post-content", "post-title", "post-header"))
 docs = loader.load()
-# all_splits = split_text(docs, CHUNK_SIZE, SPLIT_OVERLAP)
-# stored_vectors = vector_store.add_documents(documents=all_splits)
-# # serialized, retrieved_docs = retrieve()
-
-# print(llm.invoke(input=[HumanMessage(content="Hello")]))
