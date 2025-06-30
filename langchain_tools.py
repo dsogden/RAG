@@ -16,3 +16,6 @@ def create_vector_store(embeddings: OpenAIEmbeddings):
     """Create the vector store"""
     return InMemoryVectorStore(embeddings)
 
+
+
+
