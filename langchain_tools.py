@@ -17,9 +17,7 @@ def webpage_loader(path: str, classes: tuple[str]):
     return WebBaseLoader(
         web_path=path,
         bs_kwargs=dict(
-            parse_only=bs4.SoupStrainer(
-                class_=classes
-            )
+            parse_only=bs4.SoupStrainer(class_=classes)
         )
     )
 
