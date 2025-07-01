@@ -2,11 +2,9 @@ from langchain_tools import create_vector_store, webpage_loader, split_text
 from langchain_core.tools import tool
 from langchain_openai import OpenAIEmbeddings
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 EMBEDDING_MODEL = "text-embedding-3-large"
 CHUNK_SIZE = 1000
 SPLIT_OVERLAP = 200
