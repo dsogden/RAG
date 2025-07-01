@@ -2,6 +2,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import WebBaseLoader
+from dataclasses import dataclass
 import bs4
 
 def create_llm(model_name: str, api_key: str):

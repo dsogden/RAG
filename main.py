@@ -1,20 +1,24 @@
-from langchain_tools import create_llm, create_vector_store, webpage_loader
-from langchain_openai import OpenAIEmbeddings
+from langchain_tools import create_llm
+from agent import build_agent
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
 MODEL_NAME = "gpt-4o-mini"
-EMBEDDING_MODEL = "text-embedding-3-large"
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-LANGSMITH_API_KEY = os.getenv('LANGSMITH_API_KEY')
-CHUNK_SIZE = 1000
-SPLIT_OVERLAP = 200
 
 llm = create_llm(MODEL_NAME, OPENAI_API_KEY)
-embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL)
-vector_store = create_vector_store(embeddings)
-path = "https://lilianweng.github.io/posts/2023-06-23-agent/"
-loader = webpage_loader(path, classes=("post-content", "post-title", "post-header"))
-docs = loader.load()
+
+config = {"configurable": {"thread_id": "abc123"}}
+input_message = (
+    "What is the standard method for Task Decomposition?\n\n"
+    "Once you get the answer, look up common extensions of that method."
+)
+agent_executor = build_agent(llm)
+for event in agent_executor.stream(
+    {"messages": [{"role": "user", "content": input_message}]},
+    stream_mode="values",
+    config=config,
+):
+    event["messages"][-1].pretty_print()
