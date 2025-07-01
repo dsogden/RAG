@@ -4,6 +4,7 @@ langgraph
 langchain-community
 beautifulsoup4
 streamlit
-fastapi
+fastapi[standard]
+uvicorn
 openai
 pydantic
