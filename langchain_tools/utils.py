@@ -2,6 +2,8 @@ from langchain_openai import ChatOpenAI
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from pydantic import BaseModel, Field
+from typing import Literal
 
 def create_llm(model_name: str, temperature: float):
     """Create the llm model"""
