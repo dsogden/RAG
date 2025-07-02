@@ -8,10 +8,6 @@ MODEL_NAME = "gpt-4o-mini"
 TEMPERATURE = 0.0
 grader_model = create_llm(MODEL_NAME, TEMPERATURE)
 
-class GradeDocuments(BaseModel):
-    """Grade documents using a binary score for relevance check."""
-    binary_score : str = Field(description="Releveance score")
-
 grade_prompt = (
     "You are a grader assessing relevance of a retrieved document to a user question. \n "
     "Here is the retrieved document: \n\n {context} \n\n"
@@ -19,6 +15,10 @@ grade_prompt = (
     "If the document contains keyword(s) or semantic meaning related to the user question, grade it as relevant. \n"
     "Give a binary score 'yes' or 'no' score to indicate whether the document is relevant to the question."
 )
+
+class GradeDocuments(BaseModel):
+    """Grade documents using a binary score for relevance check."""
+    binary_score : str = Field(description="Releveance score")
 
 def grade_documents(state: MessagesState) -> Literal["generate_answer", "rewrite_question"]:
     """Determines whether the retrieved documents are relevant to question"""
