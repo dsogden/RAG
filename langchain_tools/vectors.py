@@ -8,14 +8,21 @@ CHUNK_SIZE = 1000
 OVERLAP = 200
 COLLECTION_NAME = 'baseball_info'
 
+# load the documents
 docs = load_documents(PATH)
+
+# initialize the embedding model and vector storing
 embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL)
 vector_store = create_vector_store(
     COLLECTION_NAME, embeddings
 )
+
+# split the text into chunks with overlapping
+# add the splits to the vector storage
 splits = split_text(docs, CHUNK_SIZE, OVERLAP)
 vector_store.add_documents(splits)
 
+# retreival tool for the AI Agent
 @tool(response_format="content_and_artifact")
 def retrieve(query: str, k: int=2) -> tuple:
     """Retrieve information related to query."""
