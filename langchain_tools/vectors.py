@@ -1,7 +1,5 @@
 from utils import load_documents, create_vector_store, split_text
 from langchain_core.tools import tool
-from langchain_community.document_loaders import PyPDFDirectoryLoader
-from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 
 PATH = "../documents/"
