@@ -1,6 +1,6 @@
 from langgraph.prebuilt import create_react_agent
 from langgraph.checkpoint.memory import MemorySaver
-from vectors import retrieve
+from langchain_tools.retriever import retrieve
 
 memory = MemorySaver()
 

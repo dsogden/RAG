@@ -9,7 +9,8 @@ load_dotenv()
 # print(compose_documents(PATH))
 
 # MODEL_NAME = "gpt-4o-mini"
-# llm = create_llm(MODEL_NAME)
+# TEMPERATURE = 0.3
+# llm = create_llm(MODEL_NAME, TEMPERATURE)
 
 # config = {"configurable": {"thread_id": "abc123"}}
 # input_message = (
