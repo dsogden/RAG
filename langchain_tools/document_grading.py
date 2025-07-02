@@ -5,7 +5,7 @@ from utils import create_llm
 
 
 MODEL_NAME = "gpt-4o-mini"
-TEMPERATURE = 0.3
+TEMPERATURE = 0.0
 grader_model = create_llm(MODEL_NAME, TEMPERATURE)
 
 class GradeDocuments(BaseModel):

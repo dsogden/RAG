@@ -3,7 +3,7 @@ from utils import create_llm
 from retriever import generate_retreiver
 
 MODEL_NAME = "gpt-4o-mini"
-TEMPERATURE = 0.3
+TEMPERATURE = 0.0
 llm = create_llm(MODEL_NAME, TEMPERATURE)
 
 retreiver_tool = generate_retreiver()
