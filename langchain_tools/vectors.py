@@ -13,7 +13,7 @@ embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL)
 vector_store = create_vector_store(
     COLLECTION_NAME, embeddings
 )
-splits = split_text(docs, 1000, 200)
+splits = split_text(docs, CHUNK_SIZE, OVERLAP)
 vector_store.add_documents(splits)
 
 @tool(response_format="content_and_artifact")
