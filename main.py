@@ -1,23 +1,28 @@
-from langchain_tools.langchain_tools import create_llm
-from agent import build_agent
+from langchain_tools.utils import compose_documents
+import os
+# from agent import build_agent
 from dotenv import load_dotenv
 
 load_dotenv()
 
-MODEL_NAME = "gpt-4o-mini"
-llm = create_llm(MODEL_NAME)
+PATH = "./documents/"
+print(compose_documents(PATH))
 
-config = {"configurable": {"thread_id": "abc123"}}
-input_message = (
-    "What is the standard method for Task Decomposition?\n\n"
-)
-agent_executor = build_agent(llm)
+# MODEL_NAME = "gpt-4o-mini"
+# llm = create_llm(MODEL_NAME)
 
-outputs = []
-for idx, event in enumerate(agent_executor.stream(
-{"messages": [{"role": "user", "content": input_message}]},
-stream_mode="values",
-config=config,
-)):
-    outputs.append({idx: event["messages"][-1].content})
-print(outputs)
+# config = {"configurable": {"thread_id": "abc123"}}
+# input_message = (
+#     "What is the standard method for Task Decomposition?\n\n"
+# )
+
+# agent_executor = build_agent(llm)
+
+# outputs = []
+# for idx, event in enumerate(agent_executor.stream(
+# {"messages": [{"role": "user", "content": input_message}]},
+# stream_mode="values",
+# config=config,
+# )):
+#     outputs.append({idx: event["messages"][-1].content})
+# print(outputs)
