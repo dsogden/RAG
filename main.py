@@ -1,12 +1,12 @@
-from langchain_tools.utils import compose_documents
+from langchain_tools.utils import compose_documents, create_vector_store
 import os
 # from agent import build_agent
 from dotenv import load_dotenv
 
 load_dotenv()
 
-PATH = "./documents/"
-print(compose_documents(PATH))
+# PATH = "./documents/"
+# print(compose_documents(PATH))
 
 # MODEL_NAME = "gpt-4o-mini"
 # llm = create_llm(MODEL_NAME)

@@ -1,5 +1,6 @@
 langchain
 langchain[openai]
+langchain-chroma
 langgraph
 langchain-community
 beautifulsoup4
