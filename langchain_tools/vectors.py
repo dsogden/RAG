@@ -1,4 +1,4 @@
-from langchain_tools import create_vector_store, webpage_loader, split_text
+from utils import create_vector_store, webpage_loader, split_text
 from langchain_core.tools import tool
 from langchain_openai import OpenAIEmbeddings
 
