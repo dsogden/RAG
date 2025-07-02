@@ -4,9 +4,9 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import WebBaseLoader
 import bs4
 
-def create_llm(model_name: str, api_key: str):
+def create_llm(model_name: str):
     """Create the llm model"""
-    return ChatOpenAI(model=model_name, api_key=api_key)
+    return ChatOpenAI(model=model_name)
 
 def create_vector_store(embeddings):
     """Create the vector store"""
