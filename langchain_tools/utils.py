@@ -8,14 +8,15 @@ def create_llm(model_name: str):
     return ChatOpenAI(model=model_name)
 
 def load_documents(path: str):
+    """Load the documents"""
     return PyPDFDirectoryLoader(path).load()
 
 def create_vector_store(collection_name: str, embeddings):
     """Create the vector store"""
     return Chroma(
-    collection_name=collection_name,
-    embedding_function=embeddings
-)
+        collection_name=collection_name,
+        embedding_function=embeddings
+    )
 
 def split_text(docs, chunk_size: int, overlap: int):
     """Splits documents by specific chunk size and overlap"""
