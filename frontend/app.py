@@ -1,5 +1,5 @@
 import streamlit as st
-from lang_utils.chatbot import run_chatbot
+from langchain_utils.chatbot import run_chatbot
 
 st.title("Chat Model with RAG")
 st.session_state.messages = []
