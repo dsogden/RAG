@@ -8,5 +8,3 @@ def run_chatbot(message: str):
     input_message = {"messages": [HumanMessage(message)]}
     result = graph.invoke(input_message)
     return result
-    # print("Assistant:", result["messages"][-1].content)
-    # return result["messages"][-1].content
