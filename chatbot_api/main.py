@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 from langchain_utils.chatbot import run_chatbot
 from pydantic import BaseModel
-import requests
-import os
 
 app = FastAPI(
     title="Baseball chatbot",
@@ -17,5 +15,5 @@ class Response(BaseModel):
 
 @app.post("/baseball_info")
 async def post(query: Query) -> Response:
-    response = run_chatbot(query.query)["messages"][-1].content
-    return {"response": response}
+    response = run_chatbot(query.query)
+    return {"response": response["messages"][-1].content}
