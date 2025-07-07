@@ -6,3 +6,5 @@ If you'd like to download this repo use the following:
 ```
 $ git clone https://github.com/dsogden/RAG.git
 ```
+
+The chatbot uses OpenAI LLMs, specifically "gpt-4o-mini", and will require an OpenAI API Key. I have also set up tracing with LangSmith so you needs an API key for that as well.
