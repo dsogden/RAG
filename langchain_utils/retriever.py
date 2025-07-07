@@ -1,4 +1,4 @@
-from utils import load_documents, create_vector_store, split_text
+from langchain_utils.utils import load_documents, create_vector_store, split_text
 from langchain.tools.retriever import create_retriever_tool
 from langchain_openai import OpenAIEmbeddings
 

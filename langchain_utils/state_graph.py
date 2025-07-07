@@ -3,9 +3,9 @@ from langgraph.prebuilt import ToolNode
 from langgraph.prebuilt import tools_condition
 from langgraph.graph import MessagesState
 from langgraph.checkpoint.memory import MemorySaver
-from agent import generate_query_or_respond, rewrite_question, generate_answer
-from retriever import generate_retreiver
-from document_grading import grade_documents
+from langchain_utils.agent import generate_query_or_respond, rewrite_question, generate_answer
+from langchain_utils.retriever import generate_retreiver
+from langchain_utils.document_grading import grade_documents
 
 retriever_tool = generate_retreiver()
 memory = MemorySaver()
@@ -32,4 +32,3 @@ def build_state_graph():
     workflow.add_edge("rewrite_question", "generate_query_or_respond")
     graph = workflow.compile(checkpointer=memory)
     return graph
-

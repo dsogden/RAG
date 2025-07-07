@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Literal
 from langgraph.graph import MessagesState
-from utils import create_llm
+from langchain_utils.utils import create_llm
 
 
 MODEL_NAME = "gpt-4o-mini"
