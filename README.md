@@ -16,4 +16,4 @@ LANGSMITH_PROJECT=<LangSmith Project Name>
 OPENAI_API_KEY=<OPENAI API Key>
 ```
 
-![screenshot](https://github.com/dsogden/RAG/edit/main/example.png)
+![screenshot][(https://github.com/dsogden/RAG/edit/main/example.png)
