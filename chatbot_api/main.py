@@ -13,6 +13,10 @@ class Query(BaseModel):
 class Response(BaseModel):
     response: str
 
+@app.get("/")
+async def root():
+    return {"message": "running"}
+
 @app.post("/baseball_info")
 async def post(query: Query) -> Response:
     response = run_chatbot(query.query)
