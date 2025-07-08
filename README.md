@@ -15,3 +15,7 @@ LANGSMITH_API_KEY=<LangSmith API Key>
 LANGSMITH_PROJECT=<LangSmith Project Name>
 OPENAI_API_KEY=<OPENAI API Key>
 ```
+
+## Example Screenshot of the functionality.
+The frontend for the implementation is Streamlit.
+![screenshot](https://github.com/dsogden/RAG/blob/main/example.png)
