@@ -14,6 +14,9 @@ LANGSMITH_ENDPOINT="https://api.smith.langchain.com"
 LANGSMITH_API_KEY=<LangSmith API Key>
 LANGSMITH_PROJECT=<LangSmith Project Name>
 OPENAI_API_KEY=<OPENAI API Key>
+CHATGPT_MODEL=<OPENAI Model>
+TEMPERATURE=0.3
+EMBEDDING_MODEL=<EMBEDDING MODEL NAME>
 ```
 
 ## Example Screenshot of the functionality.
