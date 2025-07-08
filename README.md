@@ -19,6 +19,6 @@ TEMPERATURE=0.3
 EMBEDDING_MODEL=<EMBEDDING MODEL NAME>
 ```
 
-## Example Screenshot of the functionality.
+## Example screenshot of the functionality.
 The frontend for the implementation is Streamlit.
 ![screenshot](https://github.com/dsogden/RAG/blob/main/example.png)
