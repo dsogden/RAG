@@ -1,9 +1,13 @@
 from langchain_utils.utils import load_documents, create_vector_store, split_text
 from langchain.tools.retriever import create_retriever_tool
 from langchain_openai import OpenAIEmbeddings
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 PATH = "../documents/"
-EMBEDDING_MODEL = "text-embedding-3-large"
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
 CHUNK_SIZE = 1000
 OVERLAP = 200
 COLLECTION_NAME = 'baseball_info'

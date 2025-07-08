@@ -2,10 +2,14 @@ from pydantic import BaseModel, Field
 from typing import Literal
 from langgraph.graph import MessagesState
 from langchain_utils.utils import create_llm
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
-MODEL_NAME = "gpt-4o-mini"
-TEMPERATURE = 0.0
+MODEL_NAME = os.getenv("CHATGPT_MODEL")
+TEMPERATURE = os.getenv("TEMPERATURE")
+
 grader_model = create_llm(MODEL_NAME, TEMPERATURE)
 
 grade_prompt = (

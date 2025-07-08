@@ -1,11 +1,15 @@
 from langgraph.graph import MessagesState
 from langchain_utils.utils import create_llm
 from langchain_utils.retriever import generate_retreiver
+import os
+from dotenv import load_dotenv
 
-MODEL_NAME = "gpt-4o-mini"
-TEMPERATURE = 0.0
+load_dotenv()
+
+MODEL_NAME = os.getenv("CHATGPT_MODEL")
+TEMPERATURE = os.getenv("TEMPERATURE")
+
 response_model = create_llm(MODEL_NAME, TEMPERATURE)
-
 retreiver_tool = generate_retreiver()
 
 rewrite_prompt = (
