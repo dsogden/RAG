@@ -20,7 +20,7 @@ def main():
             input_message = prompt
 
         with st.chat_message('assistant'):
-            data = {"query": prompt}
+            data = {"query": input_message}
             output = requests.post(chatbot_url, json=data)
             response = output.json()['response']
             
